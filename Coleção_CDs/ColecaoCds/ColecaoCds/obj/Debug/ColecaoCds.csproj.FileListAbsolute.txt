@@ -31,3 +31,14 @@ C:\GitHub\Projetos\backup\Projetos\Coleção_CDs\ColecaoCds\ColecaoCds\obj\Debug
 C:\GitHub\Projetos\backup\Projetos\Coleção_CDs\ColecaoCds\ColecaoCds\obj\Debug\ColecaoCds.exe
 C:\GitHub\Projetos\backup\Projetos\Coleção_CDs\ColecaoCds\ColecaoCds\obj\Debug\ColecaoCds.pdb
 C:\GitHub\Projetos\backup\Projetos\Coleção_CDs\ColecaoCds\ColecaoCds\obj\Debug\ColecaoCds.FormCadastroCD.resources
+C:\GitHub\Projeto_CRUD\Coleção_CDs\ColecaoCds\ColecaoCds\bin\Debug\ColecaoCds.exe.config
+C:\GitHub\Projeto_CRUD\Coleção_CDs\ColecaoCds\ColecaoCds\bin\Debug\ColecaoCds.exe
+C:\GitHub\Projeto_CRUD\Coleção_CDs\ColecaoCds\ColecaoCds\bin\Debug\ColecaoCds.pdb
+C:\GitHub\Projeto_CRUD\Coleção_CDs\ColecaoCds\ColecaoCds\obj\Debug\ColecaoCds.csproj.AssemblyReference.cache
+C:\GitHub\Projeto_CRUD\Coleção_CDs\ColecaoCds\ColecaoCds\obj\Debug\ColecaoCds.csproj.SuggestedBindingRedirects.cache
+C:\GitHub\Projeto_CRUD\Coleção_CDs\ColecaoCds\ColecaoCds\obj\Debug\ColecaoCds.FormCadastroCD.resources
+C:\GitHub\Projeto_CRUD\Coleção_CDs\ColecaoCds\ColecaoCds\obj\Debug\ColecaoCds.Properties.Resources.resources
+C:\GitHub\Projeto_CRUD\Coleção_CDs\ColecaoCds\ColecaoCds\obj\Debug\ColecaoCds.csproj.GenerateResource.cache
+C:\GitHub\Projeto_CRUD\Coleção_CDs\ColecaoCds\ColecaoCds\obj\Debug\ColecaoCds.csproj.CoreCompileInputs.cache
+C:\GitHub\Projeto_CRUD\Coleção_CDs\ColecaoCds\ColecaoCds\obj\Debug\ColecaoCds.exe
+C:\GitHub\Projeto_CRUD\Coleção_CDs\ColecaoCds\ColecaoCds\obj\Debug\ColecaoCds.pdb

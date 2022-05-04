@@ -12,7 +12,7 @@ namespace ColecaoCds
         string connStr = "Provider=msdaora;Data Source=LOCAL;User Id=curso;Password=123456;";
         OleDbDataAdapter daCd;
         DataSet dsCd;
-       
+
         public FormCadastroCD()
         {
             InitializeComponent();
@@ -85,76 +85,76 @@ namespace ColecaoCds
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-            //Criar uma linha na tabela CDs no projeto DataSet
-            DataRow insert = dsCd.Tables[0].NewRow();
+            try
+            {
+                //Criar uma linha na tabela CDs no projeto DataSet
+                DataRow insert = dsCd.Tables[0].NewRow();
 
-            //Adicionar os respectivos valores do textboxes na linha
-            insert["ID"] = tbId.Text;
-            insert["ALBUM"] = tbAlbum.Text;
-            insert["ARTISTA"] = tbArtista.Text;
-            insert["ANO"] = tbAno.Text;
+                //Adicionar os respectivos valores do textboxes na linha
+                insert["ID"] = tbId.Text;
+                insert["ALBUM"] = tbAlbum.Text;
+                insert["ARTISTA"] = tbArtista.Text;
+                insert["ANO"] = tbAno.Text;
 
-            //Solicitar ao DataAdapter que insira dados na base de dados
-            dsCd.Tables[0].Rows.Add(insert);
-            daCd.Update(dsCd);
+                //Solicitar ao DataAdapter que insira dados na base de dados
+                dsCd.Tables[0].Rows.Add(insert);
+                daCd.Update(dsCd);
 
-            Clear(); // Limpa Campos
-            MessageBox.Show("Cadastro realizado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);          
+                Clear(); // Limpa Campos
+                MessageBox.Show("Cadastro realizado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch
+            {
+                MessageBox.Show("Preencher todos os campos!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
         }
-
         private void btExcluir_Click(object sender, EventArgs e)
         {
-            //Devemos procurar no DataSet pela linha equivalente a chave primária e realizar a exclusão
-            int id = int.Parse(tbId.Text);
-
-            DataRow reg = dsCd.Tables[0].Rows.Find(id);
-            reg.Delete();
-            daCd.Update(dsCd);
-
-            Clear(); // Limpa Campos
-            MessageBox.Show("Cadastro excluido com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void btBuscar_Click(object sender, EventArgs e)
-        {
-            //Devemos manipular o comando Select do DataAdapter, limpar o DateSet e preenche-lo novamente.
-            //Buscando pelo Álbum.
-            string sqlQ = "select * from cds where id = '" + tbId.Text + "'";
-            daCd.SelectCommand = new OleDbCommand(sqlQ);
-            daCd.SelectCommand.Connection = new OleDbConnection(connStr);
-            dsCd.Clear();
-            daCd.Fill(dsCd);
-            if (dsCd.Tables[0].Rows.Count > 0)
+            try
             {
-                DataRow reg = dsCd.Tables[0].Rows[0];
-                tbId.Text = reg["ID"].ToString();
-                tbAlbum.Text = reg["ALBUM"].ToString();
-                tbArtista.Text = reg["ARTISTA"].ToString();
-                tbAno.Text = reg["ANO"].ToString();
+                //Devemos procurar no DataSet pela linha equivalente a chave primária e realizar a exclusão
+                int id = int.Parse(tbId.Text);
+
+                DataRow reg = dsCd.Tables[0].Rows.Find(id);
+                reg.Delete();
+                daCd.Update(dsCd);
+
+                Clear(); // Limpa Campos
+                MessageBox.Show("Cadastro excluido com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
+            catch
             {
-                MessageBox.Show("Cadastro não encontrado!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Atenção, Selecione uma linha!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void tbAlterar_Click(object sender, EventArgs e)
         {
-            //Devemos procurar no DataSet pela linha equivalente a chave primária e realizar a alteração
-            int id = int.Parse(tbId.Text);
-            DataRow reg = dsCd.Tables[0].Rows.Find(id);
-            
-            reg["ALBUM"] = tbAlbum.Text;
-            reg["ARTISTA"] = tbArtista.Text;
-            reg["ANO"] = tbAno.Text;
-            daCd.Update(dsCd);
+            if (tbId.Text == "" || tbAlbum.Text == "" || tbArtista.Text == "" || tbAno.Text == "")
+            {
+                MessageBox.Show("Atenção, Selecione uma linha!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
 
-            Clear(); // Limpa Campos
-            MessageBox.Show("Cadastro atualizado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Devemos procurar no DataSet pela linha equivalente a chave primária e realizar a alteração
+                int id = int.Parse(tbId.Text);
+                DataRow reg = dsCd.Tables[0].Rows.Find(id);
+
+                reg["ALBUM"] = tbAlbum.Text;
+                reg["ARTISTA"] = tbArtista.Text;
+                reg["ANO"] = tbAno.Text;
+                daCd.Update(dsCd);
+
+                Clear(); // Limpa Campos
+                MessageBox.Show("Cadastro atualizado com sucesso!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
-
-      
-
+  
         private void dgCadastro_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Retorna dados do DataGrid para os campos ao clicar na linha
